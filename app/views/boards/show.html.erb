@@ -1,26 +1,32 @@
 <%= @board.title %>
 <%= link_to "New Ticket", new_board_ticket_path(@board) %>
 
-<div id="backlog">backlog
+<div id="backlog"><h2>backlog</h2>
   <% @board.tickets.backlogged.each do |ticket| %>
     <%= ticket.title %>
+    <%= button_to "Move to Sprint", board_ticket_path(@board, ticket, status: ticket.status), method: :put %>
   <% end %>
 </div>
 
-<div id="current-sprint">current sprint
+<div id="current-sprint"><h2>current sprint</h2>
   <% @board.tickets.sprinting.each do |ticket| %>
     <%= ticket.title %>
+    <%= button_to "Move to Backlog", board_ticket_path(@board, ticket, status: ticket.status), method: :put %>
+    <%= button_to "Move to In Progress", board_ticket_path(@board, ticket, status: ticket.status), method: :put %>
   <% end %>
 </div>
 
-<div id="in-progress">in progress
+<div id="in-progress"><h2>in progress</h2>
   <% @board.tickets.progressing.each do |ticket| %>
     <%= ticket.title %>
+    <%= button_to "Move to Current Sprint", board_ticket_path(@board, ticket, status: ticket.status), method: :put %>
+    <%= button_to "Move to Done", board_ticket_path(@board, ticket, status: ticket.status), method: :put %>
   <% end %>
 </div>
 
-<div id="done">done
+<div id="done"><h2>done</h2>
   <% @board.tickets.done.each do |ticket| %>
     <%= ticket.title %>
+    <%= button_to "Move to In Progress", board_ticket_path(@board, ticket, status: ticket.status), method: :put %>
   <% end %>
 </div>
