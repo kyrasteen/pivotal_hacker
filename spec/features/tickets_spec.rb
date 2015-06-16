@@ -7,7 +7,7 @@ describe "Board tickets" do
     click_link_or_button("New Ticket")
     fill_in("ticket[title]", with: "styles")
     fill_in("ticket[description]", with: "are needed")
-    fill_in("ticket[status]", with: 2)
+    select "backlog", from: "ticket[status]"
     click_link_or_button "Submit"
     expect(page).to have_content("styles")
     expect(board.tickets.count).to eq(1)

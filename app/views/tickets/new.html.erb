@@ -2,7 +2,9 @@
 
 <%= form_for :ticket, url: board_tickets_path(@board) do |f| %>
   <%= f.text_field :title %>
-  <%= f.text_field :description %>
-  <%= f.number_field :status %>
+  <%= f.text_area :description %>
+  <%= f.select :status, Ticket.statuses.keys %>
   <%= f.submit "Submit" %>
 <% end %>
+
+
