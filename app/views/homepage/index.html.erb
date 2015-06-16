@@ -1,4 +1,5 @@
 <h1>Welcome to Pivotal Tracker</h1>
+<%= link_to "Make New Board", new_board_path %>
 <% @boards.each do |board| %>
   <%= link_to board.title, board_path(board) %>
 <% end %>

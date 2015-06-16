@@ -1,0 +1,8 @@
+<h1>New Ticket</h1>
+
+<%= form_for :ticket, url: board_tickets_path(@board) do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_field :description %>
+  <%= f.number_field :status %>
+  <%= f.submit "Submit" %>
+<% end %>

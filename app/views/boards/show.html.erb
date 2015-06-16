@@ -1,6 +1,11 @@
 <%= @board.title %>
+<%= link_to "New Ticket", new_board_ticket_path(@board) %>
 
 <div id="backlog">backlog
+  <% @board.tickets.backlogged.each do |ticket| %>
+    <%= ticket.title %>
+  <% end %>
+
 </div>
 
 <div id="current-sprint">current sprint
