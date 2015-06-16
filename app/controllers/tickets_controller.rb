@@ -5,7 +5,10 @@ class TicketsController < ApplicationController
   end
 
   def create
-    ticket = current_board.tickets.new(title: params[:title], description: params[:description], status: params[:status].to_i)
+    title = params[:ticket][:title]
+    description = params[:ticket][:description]
+    status = params[:ticket][:status]
+    ticket = current_board.tickets.new(title: title,description: description, status: status.to_i)
     if ticket.save
       redirect_to board_path(current_board)
     else

@@ -5,14 +5,22 @@
   <% @board.tickets.backlogged.each do |ticket| %>
     <%= ticket.title %>
   <% end %>
-
 </div>
 
 <div id="current-sprint">current sprint
+  <% @board.tickets.sprinting.each do |ticket| %>
+    <%= ticket.title %>
+  <% end %>
 </div>
 
 <div id="in-progress">in progress
+  <% @board.tickets.progressing.each do |ticket| %>
+    <%= ticket.title %>
+  <% end %>
 </div>
 
 <div id="done">done
+  <% @board.tickets.done.each do |ticket| %>
+    <%= ticket.title %>
+  <% end %>
 </div>
